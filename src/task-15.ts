@@ -1,4 +1,10 @@
-function fetchProducts() {
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+
+function fetchProducts(): Promise<Product[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([
@@ -11,7 +17,8 @@ function fetchProducts() {
 
 fetchProducts().then((products) => console.log(products));
 
-// Функція fetchProducts повертає проміс, який через затримку повертає список товарів.
+// Функція fetchProducts повертає проміс, який через затримку повертає
+// список товарів.
 
 // Товар має такі поля:
 
@@ -22,4 +29,5 @@ fetchProducts().then((products) => console.log(products));
 // Завдання:
 
 // Оголоси тип Product для товару.
-// Додайте до функції явну типізацію, вкажіть, що вона повертає проміс, який приводиться до масиву товарів.
+// Додайте до функції явну типізацію, вкажіть, що вона повертає проміс,
+// який приводиться до масиву товарів.

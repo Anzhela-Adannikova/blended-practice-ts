@@ -1,11 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
 
-const fetchPosts = async () => {
-  const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
-  return response.data;
-};
+// const fetchPosts = async () => {
+//   const response = await axios.get(
+//     "https://jsonplaceholder.typicode.com/posts"
+//   );
+//   return response.data;
+// };
 
 // Функція fetchPosts повинна отримати список постів з API за допомогою бібліотеки axios.
 

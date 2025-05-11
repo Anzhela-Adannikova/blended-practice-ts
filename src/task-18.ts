@@ -1,22 +1,48 @@
 import axios from "axios";
 
-const fetchUsers = async () => {
-  const response = await axios.get(
+interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+}
+
+const fetchUsers = async (): Promise<User[]> => {
+  const response = await axios.get<User[]>(
     "https://jsonplaceholder.typicode.com/users"
   );
   return response.data;
 };
 
-const getUsers = async () => {
+const getUsers = async (): Promise<void> => {
   const users = await fetchUsers();
   console.log(users);
 };
 
 getUsers();
 
-// Функція fetchUsers повертає проміс, який через axios отримує список користувачів з API.
+// Функція fetchUsers повертає проміс, який через axios
+// отримує список користувачів з API.
 
 // Завдання:
 
-// Оголосіть інтерфейс User для користувача (перевірте, які властивості користувача містяться у відповіді бекенда).
+// Оголосіть інтерфейс User для користувача (перевірте,
+// які властивості користувача містяться у відповіді бекенда).
 // Типізуйте функцію fetchUsers.

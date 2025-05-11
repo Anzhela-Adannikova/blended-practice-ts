@@ -1,10 +1,15 @@
 interface CreateUser {
   name: string;
   age: number;
-  isAdmin?: boolean;
+  isAdmin: boolean;
 }
 
-function createUser({ name, age }: CreateUser) {
+interface User {
+  name: string;
+  age: number;
+}
+
+function createUser({ name, age }: User): CreateUser {
   return {
     name,
     age,
